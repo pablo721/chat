@@ -1,0 +1,13 @@
+
+api
+
+
+chat
+    - models: Message, Chat
+
+spybot
+    - models: Keyword, Watchlist, InterceptedMessage
+
+website
+    - models: Profile, Ban
+

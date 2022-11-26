@@ -1,0 +1,14 @@
+{% extends 'chat/chat.html' %}
+
+
+{% block js %}
+
+    <script type="text/javascript">
+    var room_id = '{{ room.id }}';
+    </script>
+    <script src="{% static 'js/chat.js' %}"></script>
+
+
+{% endblock %}
+
+

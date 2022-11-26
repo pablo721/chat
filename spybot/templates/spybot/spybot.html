@@ -1,0 +1,50 @@
+{% extends 'website/base.html' %}
+
+
+{% block content %}
+
+    <div id="spybot_div">
+        <div id="spybot_form_div">
+            <form id="spybot_form" method="post" action="#">
+                <h3>
+                    Monitor user/chat/room
+                </h3>
+                {% csrf_token %}
+                {{ monitor_form.as_p }}
+                <button type="submit" id="spybot_monitor_form_btn" name="spybot_monitor_form_btn">
+                    Start monitoring!
+                </button>
+            </form>
+
+        </div>
+
+        <div id="spybot_monitor_div">
+            {% include 'spybot/_monitor.html' %}
+
+        </div>
+
+        <div id="spybot_watchlists_div">
+            <ul id="spybot_watchlists">
+                {% for watchlist in watchlists %}
+                    <li>
+                        <a href="/spybot/{{ watchlist.id }}"> {{ watchlist }} </a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block js %}
+
+{% endblock %}
+
+
+
+
+
+
+

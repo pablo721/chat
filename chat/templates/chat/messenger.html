@@ -1,0 +1,28 @@
+{% extends 'website/base.html' %}
+
+{% block content %}
+<div id="chat_div">
+    <div id="friends_div">
+        {% include 'chat/_friend_list.html' %}
+    </div>
+
+    <div id="chat_window">
+
+    </div>
+
+    <div id="rooms_div">
+        {% include 'chat/_new_room_form.html' %}
+        {% include 'chat/_room_list.html' %}
+    </div>
+
+</div>
+{% endblock %}
+
+
+{% block js %}
+
+    <script src="{% static 'js/chat.js' %}"></script>
+
+
+{% endblock %}
+

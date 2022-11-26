@@ -1,0 +1,14 @@
+{% extends 'website/base.html' %}
+
+{% block content %}
+<div id="banned_div">
+    <p>
+        Your account has been banned until {{ end_date }} for {{ reason }}.
+
+        <a href="{% url 'website:terms' %}">
+            Terms of service.
+        </a>
+    </p>
+</div>
+{% endblock %}
+
