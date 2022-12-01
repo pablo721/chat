@@ -79,10 +79,10 @@ passwd = os.environ.get('MSG_DB_PASS')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'chatdb',
-        'USER': 'msg',
-        'PASSWORD': 'wsad1221',
-        'HOST': 'localhost',
+        'NAME': 'd17b7jrqag3j7h',
+        'USER': 'xkubgiayqavojk',
+        'PASSWORD': '6b99b537d4357d757933d620677af7ce9dfe5987f10038bf3651ef222c7be4df',
+        'HOST': 'ec2-34-252-216-149.eu-west-1.compute.amazonaws.com',
         'POST': '5432'
     }
 }
