@@ -83,7 +83,10 @@ function getUnreadMessages(){
                 alert_msg += '\n';
                 console.log(msg);
             }
-            alert('You have unread messages \n' + alert_msg);
+            if (data.length > 0){
+                alert('You have unread messages \n' + alert_msg);
+            }
+
         },
         error: function(data){
             console.log('unread error');
