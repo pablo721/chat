@@ -118,7 +118,7 @@ function getMessages(){
                 {
                     status = 'seen';
                 }
-                msg += '  ' + status;
+                msg += '                 ' + status;
                 chatarea.value += msg;
                 setScroll();
             }
