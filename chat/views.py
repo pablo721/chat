@@ -158,8 +158,9 @@ class ChatView(MessengerView):
 def unread_messages(request):
     print('get unread')
     res = []
-    for chat in request.user.user_account.users_chats.all():
-        msgs = Message.objects.filter(chat=chat).filter(seen=False).values()
+    acc = request.user.user_account
+    for chat in acc.users_chats.all():
+        msgs = Message.objects.filter(chat=chat).filter(seen=False).filter(~Q(sender=acc)).values()
         for msg in msgs:
             msg['sender'] = Account.objects.get(id=msg['sender_id']).user.username
             res.append(msg)
