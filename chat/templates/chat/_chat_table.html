@@ -1,0 +1,29 @@
+        <table id="chat_table">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for chat in chats %}
+                <tr>
+                    <td>
+                        <a href="/chat/{{ chat.id }}"> {{ chat.chat_name }} ({{ chat.id }})  </a>
+                    </td>
+
+                    <td>
+                        {% if chat.private %}
+                            Private
+                        {% else %}
+                            Public
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
