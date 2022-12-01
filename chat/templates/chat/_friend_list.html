@@ -6,24 +6,13 @@
 
 
 <table id="friend_list_table">
-    <thead>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Online
-            </th>
-        </tr>
-    </thead>
+
     <tbody>
-
-
             {% for friend in friends %}
                 <tr>
                     <td>
                         <h5>
-                            <a href="/chat/{{ friend.1 }}"> {{ friend.0 }} </a>
+                            <a href="/chat/start_chat/{{ friend.1 }}"> {{ friend.0 }} </a>
                         </h5>
                     </td>
                     <td>
@@ -34,6 +23,18 @@
                         {% endif %}
 
                     </td>
+                    <td>
+
+                        <form id="add_to_chat_{{ friend.1 }}" method="post" action="/chat/add_to_chat">
+                            {% csrf_token %}
+                            <input type="hidden" name="chat_id" value="{{ chat.id }}">
+                            <button name="add_to_chat_btn" value="{{ friend.1 }}" type="submit">
+                                Invite
+                            </button>
+                        </form>
+
+                    </td>
+                    <td>
                     <td>
                         <form id="del_friend_form_{{ friend.1 }}" method="post" action="/chat/delete_friend">
                             {% csrf_token %}

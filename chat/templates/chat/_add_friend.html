@@ -25,6 +25,7 @@
 
                 <form id="add_friend_form{{ user.id }}" method="post" action="#">
                     {% csrf_token %}
+                    <input type="hidden" name="chat_id" value="{{ chat_id }}">
                     <button id="add_friend{{ user.id }}" type="submit" name="add_friend" value="{{ user.id }}" class="add_button">
                         Add
                     </button>

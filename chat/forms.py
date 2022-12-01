@@ -6,8 +6,8 @@ class FindUsersForm(forms.Form):
                            widget=forms.TextInput(attrs={'placeholder': 'Find users/rooms'}))
 
 
-class CreateRoomForm(forms.Form):
-    room_name = forms.CharField(max_length=16, label='Create room', widget=forms.TextInput(attrs={'placeholder': 'Room name..'}))
+class CreateChatForm(forms.Form):
+    chat_name = forms.CharField(max_length=16, label='Create chat', widget=forms.TextInput(attrs={'placeholder': 'Chat name..'}))
     private = forms.BooleanField(required=False)
 
 
@@ -16,12 +16,12 @@ class ClearChatForm(forms.Form):
                                   help_text='If checked, also deletes incoming messages.')
 
 
-class InviteToRoom(forms.Form):
+class AddToChat(forms.Form):
     friend = forms.CharField(max_length=32)
 
 
     # def __init__(self, *args, **kwargs):
     #     super().__init__(*args, **kwargs)
-    #     self.fields['friend'].choices = [(friend.id, friend.user.username) for friend in request.user.user_profile.friends.all()]
+    #     self.fields['friend'].choices = [(friend.id, friend.user.username) for friend in request.user.user_account.friends.all()]
 
 

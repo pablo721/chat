@@ -9,5 +9,5 @@ spybot
     - models: Keyword, Watchlist, InterceptedMessage
 
 website
-    - models: Profile, Ban
+    - models: Account, Ban
 

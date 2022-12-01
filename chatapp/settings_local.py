@@ -33,7 +33,6 @@ INSTALLED_APPS = [
     'online_users',
     'chat',
     'website',
-    'spybot',
     'api',
 ]
 

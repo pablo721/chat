@@ -2,20 +2,49 @@
  <div id="chat_top_div">
 
         <h3 id="chat_header">
-            {% if room %}
-                Room {{ room.room_name }}
-            {% elif friend %}
-                Chat with {{ friend.user }}
-            {% endif %}
+           Chat: {{ chat.chat_name }}
         </h3>
+
+        <ul id="chat_members">
+            {% for user in chat.users.all %}
+            <li>
+                <ul>
+                    <li>
+                        {{ user }}
+                    </li>
+                    <li>
+                        <form id="drop_from_chat_form_{{ user.id }}" method="POST" action="#">
+                            {% csrf_token %}
+                            <input type="hidden" name="drop_from_chat_chat_id" value="{{ chat_id }}">
+
+                                {% if user == request.user.user_account %}
+                                    <button id="leave_chat_btn" name="leave_chat_btn" value="leave"">
+                                        Leave
+                                     </button>
+                                {% else %}
+                                    <button id="kick_from_chat_{{ user.id }}" name="kick_from_chat" value="{{ user.id }}">
+                                            Kick
+                                        {% endif %}
+                                    </button>
+                        </form>
+                    </li>
+                </ul>
+
+            </li>
+            {% endfor %}
+        </ul>
         <form id="clear_chat_form" method="post" action="#">
             {% csrf_token %}
-            <button id="clear_chat_history" type="submit" name="clear_history" value="{{ friend.id }}">
-                Clear history
+            <button id="clear_chat_history" type="submit" name="clear_history" value="{{ chat_id }}">
+                Clear
             </button>
         </form>
 
         <div id="destruct_div">
+             <button id="rename_button" type="submit" name="rename_chat_btn">
+                Rename
+            </button>
+
             <h4 id="destruct_text">
                 Destruct timer
             </h4>

@@ -278,14 +278,15 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 
 /* GENERAL */
 
-button{width:84px; height:28px; margin:6px 6px}
+button{width:72px; height:40px; margin:1px 1px}
 select{width:200px; height:28px}
 input{width:200px; height:28px}
-form{width:200px; margin:20px 10px}
-
+form{width:40px; margin:20px 10px}
+ul{list-style-type: none; padding: 5px 15px}
 td a{color:#04b}
 thead th{text-align:center}
-table{border:1px; padding:10px}
+
+table { width: 100%;height: 100%;border:1px; padding:10px}
 td{justify:center; border:1px solid black}
 body{width:100%; height:100vh; background:#000608; color:#FFFFFF; font-family:sans bold}
 html{height:100vh; min-width: 550px; background:#051418; color:#FFFFFF; font-family:sans bold}
@@ -300,18 +301,19 @@ h2{font-family:sans bold}
 
 /* MESSENGER */
 #chat_div{width:100%; height:100%}
-#friends_div{position:absolute; top:50px; left:15px; width:15%; height:80%}
+#friends_div{position:absolute; top:50px; left:15px; width:280px; height:80%}
 #rooms_div{float:right; width:25%; height:90vh}
 
 
 #search_box{padding:15px; margin: 10px 10px}
 
-#friend_list{height:50%; float:top}
-#friend_list_table{width:100%; position:absolute; top:80px; left:15px; border-collapse: collapse}
-#friend_list_table tr{height:40px; width:120px}
-#friend_list_table td{height:30px; width:30px}
+
+#chat_members > li {float: left; padding: 5px}
+
 #friend_list_title{position:absolute; top:50px; left:25px}
-#friend_list_table td{height:25px}
+
+
+
 #del_friend_form button{width:35px; padding:5px 5px}
 #find_friends{height:50%; float:bottom}
 #find_friends_btn{height:48px}
@@ -319,27 +321,28 @@ h2{font-family:sans bold}
 #search_results_table{}
 
 .add_friend{float:right; height:35px; text-align:center; justify:center}
-#chat_window{position:absolute; top:100px; left:300px; width:800px; height:510px; padding:5px; margin: 0px 10px}
+#chat_window{position:absolute; top:20px; left:330px; width:800px; height:600px; padding:5px; margin: 0px 10px}
 
-#chat_top_div{height:12%; float:top}
-#chat_textarea_div{height:72%}
-#chat_textarea{width:100%; height:100%; overflow-y: scroll}
-#msg_div{float:bottom; width:100%}
+#chat_top_div{height:20%; float:top}
+#chat_textarea_div{height:64%; float:bottom}
+#chat_textarea{width:100%; height:89%; overflow-y: scroll}
+#msg_div{float:bottom; width:100%; height:8%}
 
 #chat_header{float:left}
-#clear_chat_form{height:62px; width:120px; position:absolute; left: 110px; top: 0px}
-#clear_chat_history{height:57px; width:90px; position:absolute; left: 100px; top:0px}
+#clear_chat_form{height:62px; width:120px; position:absolute; left: 5px; top: 50px}
+#clear_chat_history{height:57px; width:90px; position:absolute; left: 5px; top:5px}
 #destruct_div{width:20%; float:right; padding:10px 0px}
 #destruct_text{float:right}
 #destruct_select{float:right}
 
-#msg_div{float:bottom; height:10%; padding:10px 10px}
+#rename_button{float:right}
+
 #msg_form{float:bottom; width:100%; height:90%}
 #msg_text{float:bottom; width:74%; height:86%; padding:10px}
 #msg_button{float:right; width:12%; height:94%}
 #clear_msg{float:left; width:10%; height:94%}
 
-#chat_window{align:vertical; height:60%}
+
 
 #rooms_div{width:21vw; height:100vh; float:right; position:absolute; top:40px; left:1150px}
 #rooms_top{width:100%; height:320px; float:top}

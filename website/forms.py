@@ -1,5 +1,5 @@
 from django import forms
-from chat.models import Message, Profile, Room
+from chat.models import Message, Account
 
 
 class ScanForm(forms.Form):
@@ -13,7 +13,7 @@ class ScanUserForm(ScanForm):
 
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
-		self.fields['username'].choices = enum([p for p in Profile.objects.all()])
+		self.fields['username'].choices = enum([p for p in Account.objects.all()])
 
 
 class ScanRoomForm(forms.Form):

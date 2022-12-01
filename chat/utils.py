@@ -1,7 +1,7 @@
 from online_users.models import OnlineUserActivity
 import datetime
 from django.contrib.auth.models import User
-from .models import Message, Room
+from .models import Message, Chat
 
 
 def see_users():
@@ -9,19 +9,19 @@ def see_users():
 	return [user.user for user in user_status]
 
 
-def drop_room(user, room_id):
-	if Room.objects.filter(id=room_id).exists():
-		Room.objects.get(id=room_id).delete()
+def drop_chat(user, chat_id):
+	if Chat.objects.filter(id=chat_id).exists():
+		Chat.objects.get(id=chat_id).delete()
 	else:
-		print(f'There is no room {room_id}')
+		print(f'There is no room {chat_id}')
 
 
-def clear_room(user, room_id):
-	if Room.objects.filter(id=room_id).exists():
-		room_id = Room.objects.get(id=room_id).id
-		Message.objects.filter(room_id=room_id).delete()
+def clear_room(user, chat_id):
+	if Chat.objects.filter(id=chat_id).exists():
+		chat_id = Room.objects.get(id=chat_id).id
+		Message.objects.filter(chat_id=chat_id).delete()
 	else:
-		print(f'There is no room {room_id}')
+		print(f'There is no room {chat_id}')
 
 
 # if all_msgs == True, deletes also received messages

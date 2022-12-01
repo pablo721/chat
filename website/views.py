@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from .models import Profile
+from .models import Account
 
 
 class IndexView(TemplateView):
@@ -20,17 +20,17 @@ class LoginView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         user = authenticate(username=request.POST['username'], password=request.POST['password'])
-        profile = user.user_profile
         if user is not None:
-            if profile.banned:
-                ban = Ban.objects.get(user=profile)
+            account = user.user_account
+            if account.banned:
+                ban = Ban.objects.get(user=account)
                 return render(request, 'website/banned.html', {'reason': ban.reason, 'end_date': ban.end_date})
             else:
                 request.session.set_expiry(87600)
                 login(request, user)
                 return redirect('chat:messenger')
-        else:
-            return render(request, 'website/login_failed.html')
+
+        return render(request, 'website/login_failed.html')
 
     def get_context_data(self, **kwargs):
         return {'form': self.form}
@@ -53,7 +53,7 @@ class SignupView(TemplateView):
         if signup_form.is_valid():
             form_data = signup_form.cleaned_data
             user = User.objects.create_user(username=form_data['username'], password=form_data['password1'])
-            p = Profile.objects.create(user=user)
+            p = Account.objects.create(user=user)
             print(f'user {user}, p: {p}')
             if user is not None:
                 login(request, user)

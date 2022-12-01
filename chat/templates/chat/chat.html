@@ -13,8 +13,8 @@
     </div>
 
     <div id="rooms_div">
-        {% include 'chat/_new_room_form.html' %}
-        {% include 'chat/_room_list.html' %}
+
+        {% include 'chat/_chat_list.html' %}
     </div>
 
 </div>
@@ -24,7 +24,10 @@
 {% block js %}
 
     <script type="text/javascript">
+    var user_id = '{{ user_id }}';
     var friend_id = '{{ friend.id }}';
+    var chat_id = '{{ chat.id }}';
+    var unread_msgs = '{{ unread_msgs }}';
     </script>
     <script src="{% static 'js/chat.js' %}"></script>
 

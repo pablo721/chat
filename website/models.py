@@ -12,10 +12,8 @@ class Config(models.Model):
 	value = models.CharField(max_length=256)
 
 
-class Profile(models.Model):
-	user = models.OneToOneField('auth.User', on_delete=models.CASCADE, related_name='user_profile')
-	messages = models.ManyToManyField('chat.Message', related_name='user_messages', blank=True)
-	rooms = models.ManyToManyField('chat.Room', related_name='user_rooms', blank=True)
+class Account(models.Model):
+	user = models.OneToOneField('auth.User', on_delete=models.CASCADE, related_name='user_account')
 	friends = models.ManyToManyField('self', blank=True)
 	banned = models.BooleanField(default=False)
 	monitored = models.BooleanField(default=False)
@@ -25,7 +23,7 @@ class Profile(models.Model):
 
 
 class Ban(models.Model):
-	user = models.ForeignKey('website.Profile', on_delete=models.CASCADE, related_name='ban_user')
+	user = models.ForeignKey('website.Account', on_delete=models.CASCADE, related_name='ban_user')
 	reason = models.CharField(max_length=32)
 	start_date = models.DateTimeField()
 	end_date = models.DateTimeField()
