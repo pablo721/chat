@@ -1,0 +1,16 @@
+
+    <div id="chat_table_div">
+        <h2>
+            Owned chats
+        </h2>
+        {% include 'chat/_chat_table.html' with chats=owned_chats %}
+        <h2>
+            Joined chats
+        </h2>
+        {% include 'chat/_chat_table.html' with chats=joined_chats %}
+
+        <h2>
+            Pubilc chats
+        </h2>
+        {% include 'chat/_chat_table.html' with chats=public_chats %}
+    </div>
