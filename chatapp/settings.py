@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t2x#ib3_#3dk#rh)=_y^@l$r8dyt&o-r)w)@oxyw@s%&)oebhn'
+SECRET_KEY = os.environ.get('DJANGO_SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,9 +80,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get('HEROKU_DB'),
-        'USER': os.environ.get('HEROKU_USER')',
-        'PASSWORD': os.environ.get('HEROKU_PASS')',
-        'HOST': os.environ.get('HEROKU_HOST')',
+        'USER': os.environ.get('HEROKU_USER'),
+        'PASSWORD': os.environ.get('HEROKU_PASS'),
+        'HOST': os.environ.get('HEROKU_HOST'),
         'POST': '5432'
     }
 }
