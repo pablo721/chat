@@ -80,9 +80,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get('HEROKU_DB'),
-        'USER': 'os.environ.get('HEROKU_USER')',
-        'PASSWORD': 'os.environ.get('HEROKU_PASS')',
-        'HOST': 'os.environ.get('HEROKU_HOST')',
+        'USER': os.environ.get('HEROKU_USER')',
+        'PASSWORD': os.environ.get('HEROKU_PASS')',
+        'HOST': os.environ.get('HEROKU_HOST')',
         'POST': '5432'
     }
 }
