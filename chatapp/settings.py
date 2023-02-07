@@ -79,10 +79,10 @@ passwd = os.environ.get('MSG_DB_PASS')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd17b7jrqag3j7h',
-        'USER': 'xkubgiayqavojk',
-        'PASSWORD': '6b99b537d4357d757933d620677af7ce9dfe5987f10038bf3651ef222c7be4df',
-        'HOST': 'ec2-34-252-216-149.eu-west-1.compute.amazonaws.com',
+        'NAME': os.environ.get('HEROKU_DB'),
+        'USER': 'os.environ.get('HEROKU_USER')',
+        'PASSWORD': 'os.environ.get('HEROKU_PASS')',
+        'HOST': 'os.environ.get('HEROKU_HOST')',
         'POST': '5432'
     }
 }
