@@ -21,7 +21,7 @@ class LoginView(TemplateView):
     def post(self, request, *args, **kwargs):
         user = authenticate(username=request.POST['username'], password=request.POST['password'])
         if user is not None:
-            account = user.user_account
+            #account = user.user_account
             # if account.banned:
             #     ban = Ban.objects.get(user=account)
             #     return render(request, 'website/banned.html', {'reason': ban.reason, 'end_date': ban.end_date})
