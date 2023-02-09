@@ -1,7 +1,6 @@
 import os
 from pathlib import Path
 import dj_database_url
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -17,8 +16,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    '127.0.0.1',
-    'chat90.herokuapp.com'
+    '127.0.0.1'
 ]
 
 
@@ -84,16 +82,8 @@ WSGI_APPLICATION = 'chatapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('HEROKU_DB'),
-        'USER': os.environ.get('HEROKU_USER'),
-        'PASSWORD': os.environ.get('HEROKU_PASS'),
-        'HOST': os.environ.get('HEROKU_HOST'),
-        'POST': '5432'
-    },
-    'default2': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'chatdb',
-        'USER': 'msg',
+        'USER': 'zaur',
         'PASSWORD': os.environ.get('LOCAL_DB_PASS'),
         'HOST': 'localhost',
         'POST': '5432'
