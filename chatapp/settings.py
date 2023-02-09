@@ -146,6 +146,6 @@ STATICFILES_DIRS = [
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-#CSRF_TRUSTED_ORIGINS = ['https://chat90.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://chat90.herokuapp.com']
 
 
