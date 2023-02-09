@@ -14,11 +14,13 @@ class Config(models.Model):
 
 class Account(models.Model):
 	user = models.OneToOneField('auth.User', on_delete=models.CASCADE, related_name='user_account')
+	currency_code = models.CharField(max_length=3, blank=False, default='USD')
 	friends = models.ManyToManyField('self', blank=True)
 	signup_location = models.CharField(max_length=32, blank=True, null=True)
 	signup_ip = models.CharField(max_length=64, blank=True, null=True)
 	banned = models.BooleanField(default=False, blank=True)
 	monitored = models.BooleanField(default=False, blank=True)
+
 
 	def __str__(self):
 		return f'{self.user.get_username()}'
