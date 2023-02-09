@@ -16,7 +16,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    '127.0.0.1'
+    '127.0.0.1',
+    'chat90.herokuapp.com'
 ]
 
 
@@ -72,7 +73,6 @@ WSGI_APPLICATION = 'chatapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-passwd = os.environ.get('MSG_DB_PASS')
 
 
 
@@ -83,6 +83,14 @@ DATABASES = {
         'USER': os.environ.get('HEROKU_USER'),
         'PASSWORD': os.environ.get('HEROKU_PASS'),
         'HOST': os.environ.get('HEROKU_HOST'),
+        'POST': '5432'
+    },
+    'default2': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'chatdb',
+        'USER': 'msg',
+        'PASSWORD': os.environ.get('LOCAL_DB_PASS'),
+        'HOST': 'localhost',
         'POST': '5432'
     }
 }
@@ -128,8 +136,6 @@ STATICFILES_DIRS = [
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CSRF_TRUSTED_ORIGINS = ['https://chat90.herokuapp.com']
+#CSRF_TRUSTED_ORIGINS = ['https://chat90.herokuapp.com']
 
 
-import django_on_heroku
-django_on_heroku.settings(locals())
