@@ -7,6 +7,7 @@ django-on-heroku==1.1.2
 django-online-users==0.3
 djangorestframework==3.14.0
 MarkupSafe==2.1.1
+mysqlclient==2.1.1
 psycopg2-binary==2.9.5
 pytz==2022.6
 sqlparse==0.4.3
