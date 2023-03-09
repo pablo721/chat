@@ -218,7 +218,7 @@ $(document).ready(function(){
             getMessages();
     }
     getUnreadMessages();
-    setInterval(getMessages, 10000);
+    setInterval(getMessages, 2000);
     setInterval(clearExpiredMessages, 5000);
     }
 );

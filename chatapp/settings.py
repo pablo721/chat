@@ -1,7 +1,6 @@
 import os
 from pathlib import Path
 import dj_database_url
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -17,8 +16,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    '127.0.0.1',
-    'chat90.herokuapp.com'
+    '127.0.0.1'
 ]
 
 
@@ -31,7 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'whitenoise.runserver_nostatic',
+    #'whitenoise.runserver_nostatic',
     'rest_framework',
     'online_users',
     'chat',
@@ -39,7 +37,7 @@ INSTALLED_APPS = [
     'api',
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -80,26 +78,25 @@ WSGI_APPLICATION = 'chatapp.wsgi.application'
 
 
 
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('HEROKU_DB'),
-        'USER': os.environ.get('HEROKU_USER'),
-        'PASSWORD': os.environ.get('HEROKU_PASS'),
-        'HOST': os.environ.get('HEROKU_HOST'),
-        'POST': '5432'
+    'default1': {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': 'mydb.db'
     },
-    'default2': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'chatdb',
-        'USER': 'msg',
-        'PASSWORD': os.environ.get('LOCAL_DB_PASS'),
-        'HOST': 'localhost',
-        'POST': '5432'
-    }
-}
+    'default2':
+    {
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': 'chatdb',
+    'USER': 'msg',
+    'PASSWORD': os.environ.get('LOCAL_DB_PASS'),
+    'HOST': 'localhost',
+    'POST': '5432'
+    },
+    'default': dj_database_url.config(
+    default=os.environ.get('CLEARDB_DATABASE_URL'),
+    conn_max_age=600,
 
+)}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -139,13 +136,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfiles')
+    os.path.join(BASE_DIR, 'static')
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CSRF_TRUSTED_ORIGINS = ['https://chat90.herokuapp.com']
+#CSRF_TRUSTED_ORIGINS = ['https://chat90.herokuapp.com']
 
 
