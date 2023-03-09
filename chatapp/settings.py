@@ -16,7 +16,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    '127.0.0.1'
+    '127.0.0.1',
+    'chat90.herokuapp.com'
 ]
 
 
@@ -142,7 +143,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-#CSRF_TRUSTED_ORIGINS = ['https://chat90.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://chat90.herokuapp.com']
 
 
+import django_on_heroku
+django_on_heroku.settings(locals())
